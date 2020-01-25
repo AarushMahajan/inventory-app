@@ -1,0 +1,65 @@
+<body>
+
+<div class="container">
+
+    <h1><span><b> Invoice </b></span></h1><br><br>
+    <input type="text" class="form-control"  placeholder="itemName1" [(ngModel)]="itemName1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" class="form-control" placeholder="price1" [(ngModel)]="price1"><br><br>
+
+    <input type="text" class="form-control" placeholder="itemName2" [(ngModel)]="itemName2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" class="form-control" placeholder="price2" [(ngModel)]="price2"><br><br>
+
+    <button (click)="onclick()" class="btn btn-primary">Generate Invoice</button><br><br><br>
+
+    <table class="table table-hover" *ngIf="invoiceBtn" >
+        <thead>
+          <tr>
+            <td> <b> Item </b></td>
+            <td><b> Name </b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>1</b></td>
+            <td><b>{{ iN1 }}</b></td>
+          </tr>
+          <tr>
+            <td><b>2</b></td>
+            <td><b>{{ iN2 }}</b></td>
+          </tr>
+        </tbody>
+      </table>
+
+    <p *ngIf="invoiceBtn"><b> Total : &nbsp; {{total}} </b></p><br>
+
+   <button *ngIf="invoiceBtn" class="btn btn-primary" (click)="totalBill()">CheckOut</button><br><br>
+
+   <div *ngIf="checkout">
+
+    <h1><span><b> CheckOut </b></span></h1><br><br>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <td> <b> Name </b></td>
+            <td><b> Price </b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>{{ iN1 }}</b></td>
+            <td><b>{{ pr1 }}</b></td>
+          </tr>
+          <tr>
+            <td><b>{{ iN2 }}</b></td>
+            <td><b>{{ pr2 }}</b></td>
+          </tr>
+        </tbody>
+      </table>
+       
+       <p><b> Tax(18% gst) : &nbsp; {{ tax }} </b></p>
+       <p><b> Total Price : &nbsp; {{totBill}} </b></p>
+   </div>
+
+</div>
+
+</body>
